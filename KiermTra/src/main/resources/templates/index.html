@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Product List</title>
+    <title>Danh sách các sản phẩm có trong cửa hàng</title>
    <style>
        body {
            font-family: 'Arial', sans-serif;
@@ -65,6 +65,7 @@
        }
 
        .buy-button {
+           margin-top: 10px;
            background-color: #e44d26;
            color: white;
            padding: 10px 20px;
@@ -90,7 +91,8 @@
         <div class="product-details">
             <div class="product-title" th:text="${product.name}"></div>
             <div class="product-description" th:text="${product.description}"></div>
-            <div class="product-price" th:text="'Price: $' + ${product.price}"></div>
+            <div class="product-price" th:text="'Price: ' + ${product.price} +'$'"></div>
+            <div class="product-discount" th:text="'Discount: $' + ${product.priceDiscount}+'%'"></div>
             <a th:href="@{'/products/{id}' (id= ${product.id})}">
                 Xem Chi Tiết
             </a>
@@ -100,15 +102,7 @@
     </div>
 </div>
 
-<!--<div th:each="product : ${products}" class="product-container">-->
-<!--    <img th:src="${product.thumbnail}" alt="Product Thumbnail" width="150" height="150">-->
-<!--    <p th:text="${product.name}"></p>-->
-<!--    <p th:text="${product.price}"></p>-->
-<!--    <p th:text="${product.priceDiscount}"></p>-->
-<!--    <a th:href="@{'/products/{id}' (id= ${product.id})}">-->
-<!--       Xem Chi Tiết-->
-<!--    </a>-->
-<!--</div>-->
+
 
 </body>
 </html>
